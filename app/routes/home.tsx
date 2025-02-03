@@ -1,17 +1,20 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
 
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
+export function meta(args: Route.MetaArgs) {
+	return [
+		{ title: "Emmanuel Oga's Page" },
+		{ name: "description", content: "Welcome to Emmanuel Oga's Page!" },
+	];
 }
 
 export function loader({ context }: Route.LoaderArgs) {
-  return { message: context.cloudflare.env.VALUE_FROM_CLOUDFLARE };
+	return { message: context.cloudflare.env.VALUE_FROM_CLOUDFLARE };
 }
 
-export default function Home({ loaderData }: Route.ComponentProps) {
-  return <Welcome message={loaderData.message} />;
+export default function Home(props: Route.ComponentProps) {
+	return (
+		<div>
+			<h1>Emmanuel Oga</h1>
+		</div>
+	);
 }
